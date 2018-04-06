@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/margin_8"
-            android:text="Genres" />
+            android:text="Genre Buku" />
 
         <TextView
             android:id="@+id/tv_post"
