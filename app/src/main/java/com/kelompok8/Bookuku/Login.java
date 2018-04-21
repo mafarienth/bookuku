@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kelompok8.Bookuku.model.User;
@@ -25,6 +26,8 @@ public class Login extends AppCompatActivity {
     TextInputLayout mEmail, mPassword;
     Button mDaftar, mMasuk;
 
+    TextView mReset;
+
     String email, password;
 
     private FirebaseAuth mAuth;
@@ -41,6 +44,15 @@ public class Login extends AppCompatActivity {
         mPassword = findViewById(R.id.et_password);
 
         databaseUser = FirebaseDatabase.getInstance().getReference(MainActivity.table3);
+
+        mReset = findViewById(R.id.forgot_pass);
+        mReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Login.this, ForgotPass.class);
+                startActivity(i);
+            }
+        });
 
         mMasuk = findViewById(R.id.btn_masuk);
         mMasuk.setOnClickListener(new View.OnClickListener() {
