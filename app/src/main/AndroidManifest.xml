@@ -32,7 +32,11 @@
         <activity
             android:name=".DetailPost"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".ForgotPass"></activity>
+        <activity
+            android:name=".ForgotPass"
+            android:label="Forgot Password">
+
+        </activity>
     </application>
 
 </manifest>
