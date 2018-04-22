@@ -104,6 +104,13 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btn_play_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_again" />
+
     </LinearLayout>
 
 </RelativeLayout>
