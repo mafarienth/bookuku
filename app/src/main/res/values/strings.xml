@@ -17,13 +17,14 @@
         <item name="Misteri">Misteri</item>
         <item name="Kuliah">Kuliah</item>
     </array>
+
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
-    <string name="slide_1_title">Hello Food!</string>
-    <string name="slide_1_desc">The easiest way to order food from your favourite restaurant!</string>
+    <string name="slide_1_title">Selamat Datang</string>
+    <string name="slide_1_desc">Cara mudah untuk meminjamkan koleksi bukumu!</string>
 
     <string name="slide_2_title">Movie Tickets</string>
     <string name="slide_2_desc">Book movie tickets for your family and friends!</string>

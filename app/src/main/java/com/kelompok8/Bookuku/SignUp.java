@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,8 @@ public class SignUp  extends AppCompatActivity {
     Button mDaftar;
     String email, password;
 
+    TextView mLogin;
+
     private FirebaseAuth mAuth;
     DatabaseReference databaseUser;
 
@@ -41,6 +44,15 @@ public class SignUp  extends AppCompatActivity {
         mPassword = findViewById(R.id.et_password);
 
         databaseUser = FirebaseDatabase.getInstance().getReference(MainActivity.table3);
+
+        mLogin = findViewById(R.id.text_login);
+        mLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SignUp.this, Login.class);
+                startActivity(i);
+            }
+        });
 
         mDaftar = findViewById(R.id.btn_daftar);
         mDaftar.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +72,8 @@ public class SignUp  extends AppCompatActivity {
             }
         });
     }
+
+
 
     @Override
     protected void onStart() {

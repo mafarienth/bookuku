@@ -72,11 +72,11 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/forgot_pass"
+                    android:id="@+id/text_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:text="Forgot password?"
+                    android:text="Sudah Punya Akun? Login Disini"
                     android:textAllCaps="false"
                     android:textColor="@android:color/holo_blue_dark" />
             </LinearLayout>
