@@ -90,16 +90,23 @@ public class Login extends AppCompatActivity {
         mDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                email = mEmail.getEditText().getText().toString();
-                password = mPassword.getEditText().getText().toString();
-
-                if (validateForm()) {
-                    createAccount(email, password);
-                } else {
-                    Toast.makeText(Login.this, "Please Fill the Form",
-                            Toast.LENGTH_SHORT).show();
-                }
+                startActivity(new Intent(Login.this, SignUp.class));
             }
+
+            // @Override
+           // public void onClick(View v) {
+              //  email = mEmail.getEditText().getText().toString();
+              //  password = mPassword.getEditText().getText().toString();
+
+              //  if (validateForm()) {
+              //      createAccount(email, password);
+              //  }
+              //  else
+              //      {
+              //      Toast.makeText(Login.this, "Please Fill the Form",
+              //              Toast.LENGTH_SHORT).show();
+              //  }
+//            }
         });
     }
 
@@ -113,26 +120,26 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void createAccount(final String email, final String password) {
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            String id = mAuth.getUid();
-                            String[] username = email.split("@");
-                            User user = new User(id, username[0], email);
-                            databaseUser.child(id).setValue(user);
-                            Intent i = new Intent(Login.this, MainActivity.class);
-                            startActivity(i);
-                        } else {
-                            Toast.makeText(Login.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
+//    private void createAccount(final String email, final String password) {
+//
+//        mAuth.createUserWithEmailAndPassword(email, password)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            String id = mAuth.getUid();
+//                            String[] username = email.split("@");
+//                            User user = new User(id, username[0], email);
+//                            databaseUser.child(id).setValue(user);
+//                            Intent i = new Intent(Login.this, MainActivity.class);
+//                            startActivity(i);
+//                        } else {
+//                            Toast.makeText(Login.this, "Authentication failed.",
+//                                    Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//    }
 
     private void signIn(String email, String password) {
 
