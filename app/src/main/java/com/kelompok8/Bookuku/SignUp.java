@@ -23,9 +23,9 @@ public class SignUp  extends AppCompatActivity {
 
 
     private static final String TAG = "Authentication Email";
-    TextInputLayout mEmail, mPassword;
+    TextInputLayout mEmail, mPassword, mUser;
     Button mDaftar;
-    String email, password;
+    String email, password, name;
 
     TextView mLogin;
 
@@ -42,8 +42,7 @@ public class SignUp  extends AppCompatActivity {
 
         mEmail = findViewById(R.id.et_email);
         mPassword = findViewById(R.id.et_password);
-
-        databaseUser = FirebaseDatabase.getInstance().getReference(MainActivity.table3);
+        mUser = findViewById(R.id.et_name);
 
         mLogin = findViewById(R.id.text_login);
         mLogin.setOnClickListener(new View.OnClickListener() {
@@ -60,9 +59,10 @@ public class SignUp  extends AppCompatActivity {
              public void onClick(View v) {
               email = mEmail.getEditText().getText().toString();
               password = mPassword.getEditText().getText().toString();
+              name = mUser.getEditText().getText().toString();
 
               if (validateForm()) {
-                  createAccount(email, password);
+                  createAccount(email, password, name);
               }
               else
                   {
@@ -74,7 +74,6 @@ public class SignUp  extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -84,19 +83,26 @@ public class SignUp  extends AppCompatActivity {
         }
 
     }
-    private void createAccount(final String email, final String password) {
+    private void createAccount(final String email, final String password, final String name) {
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            String id = mAuth.getUid();
-                            String[] username = email.split("@");
-                            User user = new User(id, username[0], email);
-                            databaseUser.child(id).setValue(user);
+
+                            String id = mAuth.getCurrentUser().getUid();
+                            databaseUser = FirebaseDatabase.getInstance().getReference("Users").child(id);
+
+                            databaseUser.child("id").setValue(id);
+                            databaseUser.child("Name").setValue(name);
+                            databaseUser.child("email").setValue(email);
+                            databaseUser.child("user_image").setValue("default_profile");
+                            databaseUser.child("user_thumb_image").setValue("default_image");
+
                             Intent i = new Intent(SignUp.this, MainActivity.class);
                             startActivity(i);
+
                         } else {
                             Toast.makeText(SignUp.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -108,7 +114,7 @@ public class SignUp  extends AppCompatActivity {
     private boolean validateForm() {
         boolean valid = false;
 
-        if (email.isEmpty() || password.isEmpty()) {
+        if (email.isEmpty() || password.isEmpty() || name.isEmpty()) {
             valid = false;
         } else {
             valid = true;
