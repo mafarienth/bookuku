@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.kelompok8.aryawirasandi.aryawirasandi_1202150077_modul5.MainActivity">
+    tools:context="com.kelompok8.Bookuku.MainActivity">
     <item
         android:id="@+id/logout"
         android:orderInCategory="100"
