@@ -91,7 +91,10 @@ public class SignUp extends AppCompatActivity {
                             String id = mAuth.getUid();
                             String[] username = email.split("@");
                             User user = new User(id, username[0], email);
+
                             databaseUser.child(id).setValue(user);
+                            databaseUser.child(id).child("user_image").setValue("default_profile");
+                            databaseUser.child(id).child("user_thumb_image").setValue("default_image");
                             Intent i = new Intent(SignUp.this, MainActivity.class);
                             startActivity(i);
                         } else {
