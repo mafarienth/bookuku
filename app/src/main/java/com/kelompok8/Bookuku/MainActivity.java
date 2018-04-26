@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    public static final String table1 = "Post";
+    public static final String table1 = "Books";
     public static final String table2 = "Comment";
-    public static final String table3 = "User";
+    public static final String table3 = "Users";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
