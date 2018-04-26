@@ -54,7 +54,7 @@ public class AddPost extends AppCompatActivity {
 
         imageUri = null;
         mAuth = FirebaseAuth.getInstance();
-        mStorage = FirebaseStorage.getInstance().getReference().child("images");
+        mStorage = FirebaseStorage.getInstance().getReference().child("Book_Images");
         databaseFood = FirebaseDatabase.getInstance().getReference(MainActivity.table1);
         databaseUser = FirebaseDatabase.getInstance().getReference(MainActivity.table3);
         mAuth = FirebaseAuth.getInstance();
@@ -102,8 +102,8 @@ public class AddPost extends AppCompatActivity {
                             if (uploadTask.isSuccessful()) {
 
                                 String download_url = uploadTask.getResult().getDownloadUrl().toString();
-                                Post post = new Post(id, userId, name, download_url, title, postMessage);
-                                databaseFood.child(id).setValue(post);
+                                Post Book = new Post(id, userId, name, download_url, title, postMessage);
+                                databaseFood.child(id).setValue(Book);
 
                             } else {
                                 Toast.makeText(AddPost.this, "Error : " + uploadTask.getException().getMessage(), Toast.LENGTH_LONG).show();
