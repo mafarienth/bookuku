@@ -73,15 +73,6 @@ setNavigationViewListener();
 
     }
 
-    //ketika menu dibuat
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-      //  return true;
-        getMenuInflater().inflate(R.menu.navigation, menu);
-        return true;
-    }
-
     //method yang dijalankan ketika item di pilih
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -89,7 +80,7 @@ setNavigationViewListener();
 
         int id = item.getItemId();
 
-        if (id == R.id.logout) {
+        if (id == R.id.nav_Logout) {
             mAuth.signOut();
             Intent intent = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
@@ -102,7 +93,6 @@ setNavigationViewListener();
         Intent i = new Intent(MainActivity.this, AddPost.class);
         startActivity(i);
     }
-
 
     @Override
     public void onBackPressed() {
@@ -119,26 +109,36 @@ setNavigationViewListener();
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
-            case R.id.nav_camera:
+            case R.id.nav_help:
+                Intent a = new Intent(MainActivity.this, Login.class);
 
+                startActivity(a);
 
                 break;
-            case R.id.nav_gallery:
-                Intent t = new Intent(MainActivity.this, Login.class);
+            case R.id.nav_home:
+                Intent t = new Intent(MainActivity.this, MainActivity.class);
 
                 startActivity(t);
                 break;
-            case R.id.nav_slideshow:
+            case R.id.nav_book:
                 Intent te = new Intent(MainActivity.this,Login.class);
 
 
                 startActivity(te);
                 break;
-            case R.id.nav_manage:
-                Intent tes = new Intent(MainActivity.this, Login.class);
+            case R.id.nav_about:
+                Intent tes = new Intent(MainActivity.this, AboutUs.class);
 
                 startActivity(tes);
                 break;
+
+            case R.id.nav_Logout:
+                mAuth.signOut();
+                Intent b = new Intent(MainActivity.this, Login.class);
+
+                startActivity(b);
+                break;
+
         }
         return (super.onOptionsItemSelected(item));
     }

@@ -25,6 +25,13 @@
       </value>
     </option>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/welcome_slide3.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/welcome_slide4.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/menu/menu.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/menu/navigation.xml" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

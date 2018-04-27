@@ -10,6 +10,8 @@
     <string name="error_incorrect_password">Salah Password</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="deskripsi_bookuku">aplikasi ini merupakan aplikasi berbasis android platformer yang buat untuk mahasiswa khususnya mahasiswa Telkom University untuk memudahkan dalam meminjam dan meminamkan buku antar user
+    </string>
     <array name="genres">
         <item name="Pendikan">Pendikan</item>
         <item name="Fiksi">Fiksi</item>
@@ -22,6 +24,7 @@
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
+
 
     <string name="slide_1_title">Bookuku</string>
     <string name="slide_1_desc">Berbagilah ilmu dengan mudah, pinjamkan koleksi bukumu sekarang!</string>
